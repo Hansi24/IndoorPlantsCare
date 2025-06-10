@@ -76,61 +76,61 @@ export const categoryPlantItems = async (family: string) => {
     }
 };
 
-// // Get popular plants based on views
-// export const popularPlantItems = async () => {
-//     try {
-//         const popularPlants = await PlantView.aggregate([
-//             // Step 1: Group by plant ID and sum views
-//             {
-//                 $group: {
-//                     _id: "$plant",
-//                     viewCount: { $sum: "$view" }
-//                 }
-//             },
-//             // Step 2: Sort by highest view count
-//             { $sort: { viewCount: -1 } },
-//             // Step 3: Limit to top 5
-//             { $limit: 5 },
-//             // Step 4: Lookup plant details
-//             {
-//                 $lookup: {
-//                     from: "plants", // Plant collection name
-//                     localField: "_id",
-//                     foreignField: "_id",
-//                     as: "plantDetails"
-//                 }
-//             },
-//             { $unwind: "$plantDetails" },
-//             // Step 5: Lookup image details
-//             {
-//                 $lookup: {
-//                     from: "images",
-//                     localField: "plantDetails.image",
-//                     foreignField: "_id",
-//                     as: "imageDetails"
-//                 }
-//             },
-//             { $unwind: "$imageDetails" },
-//             // Step 6: Project final output
-//             {
-//                 $project: {
-//                     _id: 0,
-//                     plantId: "$_id",
-//                     plantName: "$plantDetails.plantName",
-//                     viewCount: 1,
-//                     image: {
-//                         url: "$imageDetails.url"
-//                     }
-//                 }
-//             }
-//         ]);
+// Get popular plants based on views
+export const popularPlantItems = async () => {
+    try {
+        const popularPlants = await PlantView.aggregate([
+            // Step 1: Group by plant ID and sum views
+            {
+                $group: {
+                    _id: "$plant",
+                    viewCount: { $sum: "$view" }
+                }
+            },
+            // Step 2: Sort by highest view count
+            { $sort: { viewCount: -1 } },
+            // Step 3: Limit to top 5
+            { $limit: 5 },
+            // Step 4: Lookup plant details
+            {
+                $lookup: {
+                    from: "plants", // Plant collection name
+                    localField: "_id",
+                    foreignField: "_id",
+                    as: "plantDetails"
+                }
+            },
+            { $unwind: "$plantDetails" },
+            // Step 5: Lookup image details
+            {
+                $lookup: {
+                    from: "images",
+                    localField: "plantDetails.image",
+                    foreignField: "_id",
+                    as: "imageDetails"
+                }
+            },
+            { $unwind: "$imageDetails" },
+            // Step 6: Project final output
+            {
+                $project: {
+                    _id: 0,
+                    plantId: "$_id",
+                    plantName: "$plantDetails.plantName",
+                    viewCount: 1,
+                    image: {
+                        url: "$imageDetails.url"
+                    }
+                }
+            }
+        ]);
 
-//         return popularPlants;
-//     } catch (error) {
-//         console.error(error);
-//         throw error;
-//     }
-// };
+        return popularPlants;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
 
 // View plant item
 export const viewPlant = async (plantId: string) => {

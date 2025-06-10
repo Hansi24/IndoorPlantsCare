@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Util } from '../utils/util';
-import { addPlantItem, catPlant, getAllPlantItems, searchPlant, viewdPlant } from '../endpoint/plant-ep';
+import { addPlantItem, catPlant, getAllPlantItems, searchPlant, popularPlant, viewdPlant } from '../endpoint/plant-ep';
 import { Helper } from '../utils/helper';
 import upload from '../utils/multerMiddleware';
 
@@ -18,8 +18,8 @@ router.post('/search-plants', Util.withErrorHandling(searchPlant));
 // Route to get plants by category (family)
 router.get('/cat-plants', Util.withErrorHandling(catPlant));
 
-// // Route to get popular plant items based on views
-// router.get('/popular-plants', Util.withErrorHandling(popularPlant));
+// Route to get popular plant items based on views
+router.get('/popular-plants', Util.withErrorHandling(popularPlant));
 
 router.post('/view-plant', Util.withErrorHandling(viewdPlant));
 

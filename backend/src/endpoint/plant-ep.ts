@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { addPlant, categoryPlantItems, getAllPlants, searchedPlantItems, viewPlant } from '../dao/plant-dao';
+import { addPlant, categoryPlantItems, getAllPlants, searchedPlantItems, popularPlantItems, viewPlant } from '../dao/plant-dao';
 import { Util } from '../utils/util';
 import { IPlant } from '../schema/Plant';
 
@@ -69,14 +69,14 @@ export const catPlant = async (req: Request, res: Response, next: NextFunction):
 };
 
 // Get popular plant items (based on views)
-// export const popularPlant = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-//     try {
-//         const popularPlants = await popularPlantItems();
-//         Util.sendSuccess(res, popularPlants, 'Popular plant items retrieved successfully');
-//     } catch (error) {
-//         next(error);
-//     }
-// };
+export const popularPlant = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+        const popularPlants = await popularPlantItems();
+        Util.sendSuccess(res, popularPlants, 'Popular plant items retrieved successfully');
+    } catch (error) {
+        next(error);
+    }
+};
 
 // View plant item
 export const viewdPlant = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
