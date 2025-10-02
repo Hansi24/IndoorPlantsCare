@@ -6,6 +6,7 @@ Features
 - Personalized plant care advice
 - Task reminders and tracking
 - Educational resources for plant care
+- Identify plant diseases via photos 
 
 Tech Stack
 - Frontend: Flutter (cross-platform, responsive UI)
