@@ -1,16 +1,16 @@
-# pizza_planet
+🌱 Indoor Plant Care Manager App
 
-A new Flutter project.
+A mobile app for indoor plant enthusiasts to track care, get personalized guidance, and manage tasks efficiently.
 
-## Getting Started
+Features
+- Personalized plant care advice
+- Task reminders and tracking
+- Educational resources for plant care
 
-This project is a starting point for a Flutter application.
+Tech Stack
+- Frontend: Flutter (cross-platform, responsive UI)
+- Backend: Node.js (APIs & business logic)
+- Database: MongoDB (efficient storage for plants, users, and schedules)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Goal
+Simplify indoor plant care, improve plant health, and enhance the well-being of plant enthusiasts.
